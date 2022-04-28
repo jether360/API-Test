@@ -1,5 +1,5 @@
 using System;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Test.Models
 {
@@ -8,6 +8,7 @@ namespace Test.Models
        
         public string Medicines { get; set; }
 
+         [Column(TypeName = "decimal(16,2)")]
         public decimal Prices { get; set; }
 
         public int Quantity { get; set; }
