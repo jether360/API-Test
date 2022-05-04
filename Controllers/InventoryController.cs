@@ -13,9 +13,9 @@ namespace Test.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
-        private readonly InventoryDbContext _context;
+        private readonly ApiDbContext _context;
 
-        public InventoryController(InventoryDbContext context)
+        public InventoryController(ApiDbContext context)
         {
             _context = context;
         }

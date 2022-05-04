@@ -13,7 +13,7 @@ namespace Test.Models
 
         public DateTimeOffset CreatedDate { get; set; }
 
-        public ICollection<InventoryDetail> InventoryDetails { get; set; }
+        public IList<InventoryDetail> InventoryDetails { get; set; }
 
     }
 }

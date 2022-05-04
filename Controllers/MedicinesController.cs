@@ -13,9 +13,9 @@ namespace Test.Controllers
     [ApiController]
     public class MedicinesController : ControllerBase
     {
-        private readonly MedicinesDbContext _context;
+        private readonly ApiDbContext _context;
 
-        public MedicinesController(MedicinesDbContext context)
+        public MedicinesController(ApiDbContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace Test.Controllers
 
         // GET: api/Medicines/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DMedicines>> GetDMedicines(Guid id)
+        public async Task<ActionResult<DMedicines>> GetDMedicines(long id)
         {
             var dMedicines = await _context.DMedicine.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace Test.Controllers
         // PUT: api/Medicines/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDMedicines(Guid id, DMedicines dMedicines)
+        public async Task<IActionResult> PutDMedicines(long id, DMedicines dMedicines)
         {
             if (id != dMedicines.Id)
             {
@@ -85,7 +85,7 @@ namespace Test.Controllers
 
         // DELETE: api/Medicines/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDMedicines(Guid id)
+        public async Task<IActionResult> DeleteDMedicines(long id)
         {
             var dMedicines = await _context.DMedicine.FindAsync(id);
             if (dMedicines == null)
@@ -99,7 +99,7 @@ namespace Test.Controllers
             return NoContent();
         }
 
-        private bool DMedicinesExists(Guid id)
+        private bool DMedicinesExists(long id)
         {
             return _context.DMedicine.Any(e => e.Id == id);
         }
